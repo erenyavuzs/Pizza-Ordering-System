@@ -1,0 +1,16 @@
+* Please Choose A Pizza:
+
+1: Classic
+2: Margarita
+3: Pepperoni
+4: Vegetarian
+
+* And The Extra Your Choose:
+
+1: Olive
+2: Mantarlar
+3: Goat Cheese
+4: Extra Meat
+5: Onion
+6: Corn
+-: No Extra
