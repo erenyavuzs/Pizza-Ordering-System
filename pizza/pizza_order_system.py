@@ -1,18 +1,18 @@
 import csv
 import datetime
 
-#menüyü ekrana yazdırıyoruz
+
 file = open("menu.txt", "r")
 print(file.read())
 
-#Pizza üst sınıfını oluşturuyoruz.
+
 class Pizza:
     def get_description(self): 
         return self.__class__.__name__
 
     def get_cost(self): 
         return self.__class__.cost 
-#Pizza alt sınıflarını oluşturuyoruz.
+
     def __init__(self):
         self.description = "Unknown Pizza"
     
@@ -49,7 +49,7 @@ class VegetarianPizza(Pizza):
     def get_cost(self):
         return 6.99    
 
-#Decorator üst sınıf oluşturulacak.
+
 class Decorator(Pizza):
     def __init__(self, component):
         self.component = component
@@ -60,7 +60,7 @@ class Decorator(Pizza):
     def get_description(self):
         return self.component.get_description() + ' ' + Pizza.get_description(self)
 
-#Decorator alt sınıf oluşturulacak 
+
 class Olive(Decorator):
     def __init__(self, component):
         Decorator.__init__(self, component)
@@ -180,7 +180,7 @@ def main():
     print("Thanks For Ordering!")
     print("Pizza Cost: $", pizza.get_cost())
 
-#Sipariş Bilgi Kartı oluşturuyoruz.
+
     print("Order Information")
     name = input("Please Enter Your Name And Surname: ")
     id_number = input("Please Enter Your ID Number: ")
