@@ -1,4 +1,4 @@
-# Pizza-Order
+# Pizza-Ordering
 Pizza ordering system
 
 ## Using 
