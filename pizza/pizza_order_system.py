@@ -12,7 +12,7 @@ def luhn_algorithm(card_number):
     
     checksum = sum(odd_digits)
     for d in even_digits:
-        checksum += sum(digits_of(d*2))
+        checksum += sum(digits_of(d * 2))
     
     return checksum % 10 == 0
 
@@ -106,14 +106,14 @@ class Mushroom(Decorator):
 
 class GoatCheese(Decorator):
     def __init__(self, component):
-        Decorator.__init__(self,component)
+        Decorator.__init__(self, component)
         self.description = "Goat Cheese" 
     def get_cost(self):
         return self.component.get_cost() + 3.99
 
 class Meat(Decorator):
-    def __init__(self,component):
-        Decorator.__init__(self,component)
+    def __init__(self, component):
+        Decorator.__init__(self, component)
         self.description = "Extra Meat"
     def get_cost(self):
         return self.component.get_cost() + 6.99
@@ -167,6 +167,7 @@ def main():
         else:
             print("Invalid Selection, Please Try Again.")      
      
+    print("Extra Options:")
     while True:
         print("1: Olive")
         print("2: Mushroom")
@@ -217,11 +218,16 @@ def main():
         else:
             print("Invalid credit card number. Please try again.")
     
-    card_password = input("Please Enter Your Card Password: ")
+    while True:
+        card_password = input("Please Enter Your Card Password: ")
+        if card_password.isdigit() and len(card_password) == 4:
+            break
+        else:
+            print("Invalid input. The password must be exactly 4 digits.")
 
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    with open("pizza/3Orders_Database.csv", mode="a", newline="") as file:
+    with open("pizza/Orders_Database.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([pizza.get_description(), name, id_number, card_number, card_type, current_time, card_password])
 
